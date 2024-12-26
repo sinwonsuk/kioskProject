@@ -7,21 +7,24 @@
         xmlns:View="clr-namespace:kioskProject.View"
         xmlns:ViewModel="clr-namespace:kioskProject.ViewModel"     
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="537" Width="831">
 
     <Window.DataContext>
         <ViewModel:MainViewModel/>
     </Window.DataContext>
+   
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="159*"/>
-            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="629*"/>
+            <ColumnDefinition Width="171*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="154*"/>
+            <RowDefinition Height="51*"/>
+
         </Grid.RowDefinitions>
-        <TabControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+        <TabControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
             <TabItem Header="음식">
                 <ItemsControl ItemsSource="{Binding Models}">
                     <ItemsControl.ItemsPanel>
@@ -37,15 +40,33 @@
                 </ItemsControl>
             </TabItem>
             <TabItem Header="음식2" >
-                
+
             </TabItem>
             <TabItem Header="음식3" >
-               
+
             </TabItem>
         </TabControl>
-        <TextBlock Margin="5,135,87,40" Grid.Row="1" TextWrapping="Wrap" Text="합계" Grid.Column="1" Width="72" FontSize="25" TextAlignment ="Left"/>
-        <TextBlock Margin="62,131,30,44" Grid.Row="1" TextWrapping="Wrap" Text=":" Grid.Column="1" Width="72" FontSize="25" TextAlignment ="Left"/>
-        <TextBlock Margin="77,133,15,42" Grid.Row="1" TextWrapping="Wrap" Text="0" Grid.Column="1" Width="72" FontSize="25" TextAlignment ="Left" RenderTransformOrigin="0.209,0.473"/>
-        <Button Grid.Column="1" Content="결제" Margin="0,173,0,0" Grid.Row="1"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto"  Grid.Column="1" Grid.RowSpan="3" Margin="0,0,0,122">
+        <ItemsControl ItemsSource="{Binding orderItemModels}" Grid.Column="1" Margin="0,24,0,0" Grid.RowSpan="2">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+
+                        <WrapPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <View:OrderItem DataContext="{Binding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        </ScrollViewer>
+        <TextBlock Margin="10,0,89,59" Grid.Row="2" TextWrapping="Wrap" Text="합계" Grid.Column="1" FontSize="25" TextAlignment ="Left" VerticalAlignment="Bottom" Height="33" />
+        <TextBlock Margin="66,0,33,63" Grid.Row="2" TextWrapping="Wrap" Text=":" Grid.Column="1" FontSize="25" TextAlignment ="Left" VerticalAlignment="Bottom" Height="33"/>
+        <TextBlock Margin="82,0,17,61" Grid.Row="2" TextWrapping="Wrap" Text="0" Grid.Column="1" FontSize="25" TextAlignment ="Left" RenderTransformOrigin="0.209,0.473" VerticalAlignment="Bottom" Height="33"/>
+        <Button Grid.Column="1" Content="결제" Margin="0,51,0,0" Grid.Row="2" VerticalAlignment="Bottom" Height="51"/>
+        
     </Grid>
+  
 </Window>

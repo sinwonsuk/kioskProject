@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\onerp\Downloads\kioskProject\kioskProject\obj\Debug\net8.0-windows\
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\
 kioskProject
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\onerp\Downloads\kioskProject\kioskProject\App.xaml
-3-1483683884
+C:\kioskProject\kioskProject\kioskProject\App.xaml
+3-1467388406
 
-865596223
-207-114252129
-MainWindow.xaml;View\Menu.xaml;View\Test.xaml;
+9-708654343
+212-1295931507
+MainWindow.xaml;View\Menu.xaml;View\OrderItem.xaml;
 
 False
 

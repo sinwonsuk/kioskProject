@@ -1,49 +1,61 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\onerp\\Downloads\\kioskProject\\",
+  "WorkspaceRootPath": "C:\\kioskProject\\kioskProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\users\\onerp\\downloads\\kioskproject\\kioskproject\\view\\menu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\view\\orderitem.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\view\\orderitem.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\view\\menu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\view\\menu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\users\\onerp\\downloads\\kioskproject\\kioskproject\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\view\\orderitem.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\view\\orderitem.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\users\\onerp\\downloads\\kioskproject\\kioskproject\\view\\menu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\view\\menu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\users\\onerp\\downloads\\kioskproject\\kioskproject\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\users\\onerp\\downloads\\kioskproject\\kioskproject\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\users\\onerp\\downloads\\kioskproject\\kioskproject\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\view\\menu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\view\\menu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\users\\onerp\\downloads\\kioskproject\\kioskproject\\model\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\model\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\model\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\users\\onerp\\downloads\\kioskproject\\kioskproject\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\model\\orderitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\model\\orderitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\users\\onerp\\downloads\\kioskproject\\kioskproject\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\obj\\Debug\\net8.0-windows\\View\\test.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\kioskProject\\kioskProject\\kioskProject\\obj\\Debug\\net8.0-windows\\View\\test.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kioskProject\\obj\\Debug\\net8.0-windows\\View\\test.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\users\\onerp\\downloads\\kioskproject\\kioskproject\\kioskproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|c:\\kioskproject\\kioskproject\\kioskproject\\kioskproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{9EFC5AB6-9D8B-4159-9BC2-ACF299F734E3}|kioskProject\\kioskProject.csproj|solutionrelative:kioskproject\\kioskproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
@@ -54,15 +66,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OrderItemModel.cs",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\Model\\OrderItemModel.cs",
+              "RelativeDocumentMoniker": "kioskProject\\Model\\OrderItemModel.cs",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\Model\\OrderItemModel.cs",
+              "RelativeToolTip": "kioskProject\\Model\\OrderItemModel.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwCQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T11:48:34.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderItem.xaml.cs",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\View\\OrderItem.xaml.cs",
+              "RelativeDocumentMoniker": "kioskProject\\View\\OrderItem.xaml.cs",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\View\\OrderItem.xaml.cs",
+              "RelativeToolTip": "kioskProject\\View\\OrderItem.xaml.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T11:02:55.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "OrderItem.xaml",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\View\\OrderItem.xaml",
+              "RelativeDocumentMoniker": "kioskProject\\View\\OrderItem.xaml",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\View\\OrderItem.xaml",
+              "RelativeToolTip": "kioskProject\\View\\OrderItem.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-26T11:02:50.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Menu.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\View\\Menu.xaml.cs",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\View\\Menu.xaml.cs",
               "RelativeDocumentMoniker": "kioskProject\\View\\Menu.xaml.cs",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\View\\Menu.xaml.cs",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\View\\Menu.xaml.cs",
               "RelativeToolTip": "kioskProject\\View\\Menu.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -71,37 +121,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Model.cs",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\Model\\Model.cs",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\Model\\Model.cs",
               "RelativeDocumentMoniker": "kioskProject\\Model\\Model.cs",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\Model\\Model.cs",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\Model\\Model.cs",
               "RelativeToolTip": "kioskProject\\Model\\Model.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAwwCEAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-26T07:04:20.843Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MainViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\ViewModel\\MainViewModel.cs",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\ViewModel\\MainViewModel.cs",
               "RelativeDocumentMoniker": "kioskProject\\ViewModel\\MainViewModel.cs",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\ViewModel\\MainViewModel.cs",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\ViewModel\\MainViewModel.cs",
               "RelativeToolTip": "kioskProject\\ViewModel\\MainViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAnwDwAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-26T06:47:41.689Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Menu.xaml",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\View\\Menu.xaml",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\View\\Menu.xaml",
               "RelativeDocumentMoniker": "kioskProject\\View\\Menu.xaml",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\View\\Menu.xaml",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\View\\Menu.xaml",
               "RelativeToolTip": "kioskProject\\View\\Menu.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-26T06:32:54.653Z",
@@ -109,23 +159,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "test.g.cs",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\obj\\Debug\\net8.0-windows\\View\\test.g.cs",
-              "RelativeDocumentMoniker": "kioskProject\\obj\\Debug\\net8.0-windows\\View\\test.g.cs",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\obj\\Debug\\net8.0-windows\\View\\test.g.cs",
-              "RelativeToolTip": "kioskProject\\obj\\Debug\\net8.0-windows\\View\\test.g.cs",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\obj\\Debug\\net8.0-windows\\View\\Test.g.cs",
+              "RelativeDocumentMoniker": "kioskProject\\obj\\Debug\\net8.0-windows\\View\\Test.g.cs",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\obj\\Debug\\net8.0-windows\\View\\Test.g.cs",
+              "RelativeToolTip": "kioskProject\\obj\\Debug\\net8.0-windows\\View\\Test.g.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAYwCoAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T05:41:41.445Z"
+              "WhenOpened": "2024-12-24T05:41:41.445Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\App.xaml",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\App.xaml",
               "RelativeDocumentMoniker": "kioskProject\\App.xaml",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\App.xaml",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\App.xaml",
               "RelativeToolTip": "kioskProject\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-24T05:39:51.842Z",
@@ -133,36 +184,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\App.xaml.cs",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\App.xaml.cs",
               "RelativeDocumentMoniker": "kioskProject\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\App.xaml.cs",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\App.xaml.cs",
               "RelativeToolTip": "kioskProject\\App.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T05:39:31.199Z"
+              "WhenOpened": "2024-12-24T05:39:31.199Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "kioskProject\\AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\AssemblyInfo.cs",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\AssemblyInfo.cs",
               "RelativeToolTip": "kioskProject\\AssemblyInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-24T05:34:29.984Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "kioskProject\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\MainWindow.xaml.cs",
               "RelativeToolTip": "kioskProject\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -171,11 +223,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\MainWindow.xaml",
               "RelativeDocumentMoniker": "kioskProject\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\MainWindow.xaml",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\MainWindow.xaml",
               "RelativeToolTip": "kioskProject\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-24T05:33:01.73Z",
@@ -183,15 +235,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "kioskProject.csproj",
-              "DocumentMoniker": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\kioskProject.csproj",
+              "DocumentMoniker": "C:\\kioskProject\\kioskProject\\kioskProject\\kioskProject.csproj",
               "RelativeDocumentMoniker": "kioskProject\\kioskProject.csproj",
-              "ToolTip": "C:\\Users\\onerp\\Downloads\\kioskProject\\kioskProject\\kioskProject.csproj",
+              "ToolTip": "C:\\kioskProject\\kioskProject\\kioskProject\\kioskProject.csproj",
               "RelativeToolTip": "kioskProject\\kioskProject.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-24T03:45:55.081Z"
+              "WhenOpened": "2024-12-24T03:45:55.081Z",
+              "EditorCaption": ""
             }
           ]
         }
