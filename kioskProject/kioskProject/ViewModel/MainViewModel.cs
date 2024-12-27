@@ -19,14 +19,26 @@ namespace kioskProject.ViewModel
         public ObservableCollection<Model.Model> Models { get; set; }
         public ObservableCollection<OrderItemModel> orderItemModels { get; set; }
 
+        public TotalPriceModel totalPrice { get; set; }
+
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public ICommand? StartClick { get; set; }
+        public ICommand? menuClick { get; set; }
+        public ICommand? plusClick { get; set; }
+        public ICommand? musClick { get; set; }
 
+        public ICommand? cancel { get; set; }
 
         public MainViewModel()
         {
-            StartClick = new RelayCommand<object>(test);
+
+            menuClick = new RelayCommand<object>(MenuClick);
+            plusClick = new RelayCommand<object>(PlusClick);
+            musClick = new RelayCommand<object>(MusClick);
+            cancel = new RelayCommand<object>(Cancel);
+
+            totalPrice = new TotalPriceModel();
 
             orderItemModels = new ObservableCollection<OrderItemModel>();
 
@@ -44,30 +56,49 @@ namespace kioskProject.ViewModel
                 new Model.Model { Name = "test5", Price = 800 }
             };
         }
-
-
-
-
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        void test(object e)
+        void MenuClick(object e)
         {
-            Model.Model? ad = e as Model.Model;
+            Model.Model? ad = e as Model.Model;          
+            OrderItemModel model = new OrderItemModel{Name = ad.Name, Price = ad.Price,TotalPrice = ad.Price};
 
-            //for (int i = 0; i < orderItemModels.Count; i++)
-            //{
-            //    if (orderItemModels[i].Name == ad.Name)
-            //    {
-            //        orderItemModels[i].
-            //    }
-            //}
-
-
-            OrderItemModel model = new OrderItemModel{Name = ad.Name, Price = ad.Price};
             orderItemModels.Add(model);
+            totalPrice.TotalPrice += ad.Price;
+        } 
+        void PlusClick(object e)
+        {
+           OrderItemModel? ad = e as OrderItemModel;
+
+            ad.Quantity += 1;
+            ad.TotalPrice += ad.Price;        
+            totalPrice.TotalPrice += ad.Price;
+        }
+
+        void MusClick(object e)
+        {
+            OrderItemModel? ad = e as OrderItemModel;        
+           
+            if (ad.Quantity == 1)
+            {
+                return;
+            }
+
+            ad.Quantity -= 1;
+            ad.TotalPrice -= ad.Price;
+            totalPrice.TotalPrice -= ad.Price;                
+        }
+
+        void Cancel(object e)
+        {
+            OrderItemModel? ad = e as OrderItemModel;
+          
+            orderItemModels.Remove(ad);
+
+            totalPrice.TotalPrice -= ad.TotalPrice;
         }
 
     }

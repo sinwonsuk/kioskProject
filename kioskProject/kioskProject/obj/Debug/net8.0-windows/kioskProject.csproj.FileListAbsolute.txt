@@ -67,3 +67,5 @@ C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\kioskProject.
 C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\OrderItem.g.cs
 C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\OrderItem.baml
 C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\kioskPro.9DA5D108.Up2Date
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\TotalPrice.g.cs
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\TotalPrice.baml

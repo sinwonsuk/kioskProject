@@ -9,7 +9,7 @@
       xmlns:Model="clr-namespace:kioskProject.Model" Height="70" Width="90">
     
     <Grid>
-         <Button Command="{Binding DataContext.StartClick, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
+        <Button Command="{Binding DataContext.menuClick, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="{Binding Price}" VerticalAlignment="Top"/>
     </Grid>

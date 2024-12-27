@@ -7,7 +7,7 @@
         xmlns:View="clr-namespace:kioskProject.View"
         xmlns:ViewModel="clr-namespace:kioskProject.ViewModel"     
         mc:Ignorable="d"
-        Title="MainWindow" Height="537" Width="831">
+        Title="MainWindow" Height="537" Width="999">
 
     <Window.DataContext>
         <ViewModel:MainViewModel/>
@@ -16,7 +16,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="629*"/>
-            <ColumnDefinition Width="171*"/>
+            <ColumnDefinition Width="210*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="12*"/>
@@ -49,24 +49,18 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto"  Grid.Column="1" Grid.RowSpan="3" Margin="0,0,0,122">
         <ItemsControl ItemsSource="{Binding orderItemModels}" Grid.Column="1" Margin="0,24,0,0" Grid.RowSpan="2">
             <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-
+                    <ItemsPanelTemplate>
                         <WrapPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
-
-                </ItemsPanelTemplate>
+                    </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <View:OrderItem DataContext="{Binding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </DataTemplate>
-            </ItemsControl.ItemTemplate>
+            </ItemsControl.ItemTemplate >
         </ItemsControl>
         </ScrollViewer>
-        <TextBlock Margin="10,0,89,59" Grid.Row="2" TextWrapping="Wrap" Text="합계" Grid.Column="1" FontSize="25" TextAlignment ="Left" VerticalAlignment="Bottom" Height="33" />
-        <TextBlock Margin="66,0,33,63" Grid.Row="2" TextWrapping="Wrap" Text=":" Grid.Column="1" FontSize="25" TextAlignment ="Left" VerticalAlignment="Bottom" Height="33"/>
-        <TextBlock Margin="82,0,17,61" Grid.Row="2" TextWrapping="Wrap" Text="0" Grid.Column="1" FontSize="25" TextAlignment ="Left" RenderTransformOrigin="0.209,0.473" VerticalAlignment="Bottom" Height="33"/>
-        <Button Grid.Column="1" Content="결제" Margin="0,51,0,0" Grid.Row="2" VerticalAlignment="Bottom" Height="51"/>
-        
+        <View:TotalPrice x:Name="TotalPriceControl" Grid.Row="2" Grid.Column="1" DataContext="{Binding}"/>
     </Grid>
   
 </Window>

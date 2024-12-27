@@ -28,7 +28,7 @@ namespace kioskProject.Model
 			set { name = value; }
 		}
 
-        private int quantity;
+        private int quantity =1;
         public int Quantity
         {
             get { return quantity; }
@@ -37,6 +37,17 @@ namespace kioskProject.Model
             }
         }
 
+        private int totalPrice;
+
+        public int TotalPrice
+        {
+            get { return totalPrice; }
+            set
+            {
+                totalPrice = value;
+                NotifyPropertyChanged(nameof(totalPrice));
+            }
+        }
 
 
         public event PropertyChangedEventHandler? PropertyChanged;

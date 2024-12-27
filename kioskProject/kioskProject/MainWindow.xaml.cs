@@ -25,8 +25,7 @@ namespace kioskProject
 
             viewModel = new MainViewModel();
 
-            DataContext = viewModel;    
-
+            DataContext = viewModel;
         }
     
     }

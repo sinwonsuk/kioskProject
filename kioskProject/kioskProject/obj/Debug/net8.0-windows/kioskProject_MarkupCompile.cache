@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\kioskProject\kioskProject\kioskProject\App.xaml
-3-1467388406
+41693556245
 
-9-708654343
+11-1676525826
 212-1295931507
-MainWindow.xaml;View\Menu.xaml;View\OrderItem.xaml;
+MainWindow.xaml;View\Menu.xaml;View\OrderItem.xaml;View\TotalPrice.xaml;
 
 False
 
