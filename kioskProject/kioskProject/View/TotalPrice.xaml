@@ -10,6 +10,6 @@
         <TextBlock Margin="10,0,89,59" TextWrapping="Wrap" Text="합계" FontSize="25" TextAlignment ="Left" VerticalAlignment="Bottom" Height="33" />
         <TextBlock Margin="66,0,33,63" TextWrapping="Wrap" Text=":"  FontSize="25" TextAlignment ="Left" VerticalAlignment="Bottom" Height="33"/>
         <TextBlock Margin="82,0,17,61" TextWrapping="Wrap" Text="{Binding totalPrice.TotalPrice}"  FontSize="25" TextAlignment ="Left" RenderTransformOrigin="0.209,0.473" VerticalAlignment="Bottom" Height="33"/>
-        <Button Grid.Column="1" Content="결제" Margin="0,51,0,0" Grid.Row="2" VerticalAlignment="Bottom" Height="51" />
+        <Button Grid.Column="1" Content="결제" Margin="0,51,0,0" Grid.Row="2" VerticalAlignment="Bottom" Height="51" Command="{Binding pay}"/>
     </Grid>
 </UserControl>

@@ -1,0 +1,16 @@
+﻿<Window x:Class="Sever.SeverApp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sever"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="221">
+    <Grid>
+        <Button Margin="0,375,0,0" Click="Button_Click">
+            <TextBlock Text="서버시작"/>
+        </Button>
+        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="221" Height="375"/>
+
+    </Grid>
+</Window>
