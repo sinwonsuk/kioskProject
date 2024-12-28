@@ -13,6 +13,8 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Text.Json;
 using System.Windows.Interop;
+using DataBase;
+using System.Diagnostics;
 
 namespace Sever
 {
@@ -22,11 +24,17 @@ namespace Sever
     public partial class SeverApp : Window
     {
         TcpListener chatSever;
+
+       
+
         public SeverApp()
         {
             chatSever = new TcpListener(IPAddress.Parse("127.0.0.1"), 8888);
 
             InitializeComponent();
+
+          
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -59,6 +67,7 @@ namespace Sever
         private Socket socketClient;
         private NetworkStream netStream;
         private SeverApp severApp;
+        DbProject project = new DbProject();
 
         public void ClientHandler_Setup(SeverApp severApp, Socket socketClient, TextBox chat)
         {
@@ -73,19 +82,27 @@ namespace Sever
         {                                   
             while (true)
             {
+
+              
                 byte[] buffer = new byte[1024];
                 
                 int check = await netStream.ReadAsync(buffer, 0, buffer.Length);
 
                 string msg = Encoding.UTF8.GetString(buffer, 0, check);
 
-                if (msg != null)
-                {                  
-                    byte[] bytSand_Date = Encoding.Default.GetBytes(msg + "\r\n");
-                    string receivedJson = Encoding.Default.GetString(bytSand_Date);
-                    List<string> receivedList = JsonSerializer.Deserialize<List<string>>(receivedJson);
+                string[] msgs = msg.Split('\n');
 
-                    severApp.textBox.Text += receivedList + "\r\n";
+                if (msg != null)
+                {
+                    foreach (var item in msgs)
+                    {
+                        byte[] bytSand_Date = Encoding.Default.GetBytes(item + "\r\n");
+
+                        string receivedJson = Encoding.Default.GetString(bytSand_Date);
+                        List<string> receivedList = JsonSerializer.Deserialize<List<string>>(receivedJson);
+                        severApp.textBox.Text += receivedList + "\r\n";
+                        project.tttt();
+                    }             
                 }
 
             }

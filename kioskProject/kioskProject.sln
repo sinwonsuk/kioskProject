@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kioskProject", "kioskProjec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sever", "Sever\Sever.csproj", "{EEECCC12-5E73-4E42-9989-166796812DC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{0A5CEE92-D247-449D-8DB9-21BD25DE9002}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EEECCC12-5E73-4E42-9989-166796812DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEECCC12-5E73-4E42-9989-166796812DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEECCC12-5E73-4E42-9989-166796812DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A5CEE92-D247-449D-8DB9-21BD25DE9002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A5CEE92-D247-449D-8DB9-21BD25DE9002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A5CEE92-D247-449D-8DB9-21BD25DE9002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A5CEE92-D247-449D-8DB9-21BD25DE9002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
