@@ -10,8 +10,48 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resource\mega_%28HOT%29고구마라떼.jpg" />
+    <None Remove="Resource\mega_%28HOT%29곡물라떼.jpg" />
+    <None Remove="Resource\mega_%28HOT%29꿀아메리카노.jpg" />
+    <None Remove="Resource\mega_%28HOT%29녹차.jpg" />
+    <None Remove="Resource\mega_%28HOT%29녹차라떼.jpg" />
+    <None Remove="Resource\mega_%28HOT%29레몬차.jpg" />
+    <None Remove="Resource\mega_%28HOT%29로제뱅쇼.jpg" />
+    <None Remove="Resource\mega_%28HOT%29메가초코.jpg" />
+    <None Remove="Resource\mega_%28HOT%29민트카페모카.jpg" />
+    <None Remove="Resource\mega_%28HOT%29민트크림초코.jpg" />
+    <None Remove="Resource\mega_%28HOT%29바닐라라떼.jpg" />
+    <None Remove="Resource\mega_%28HOT%29아메리카노.jpg" />
+    <None Remove="Resource\mega_%28HOT%29유자차.jpg" />
+    <None Remove="Resource\mega_%28HOT%29카페라떼.jpg" />
+    <None Remove="Resource\mega_%28HOT%29콜드브루오리지널.jpg" />
+    <None Remove="Resource\mega_딸기바나나주스.jpg" />
+    <None Remove="Resource\mega_딸기쿠키프라페.jpg" />
+    <None Remove="Resource\mega_망고요거트스무디.jpg" />
+    <None Remove="Resource\mega_매직에이드%28블루%29.jpg" />
+    <None Remove="Resource\mega_매직에이드%28핑크%29.jpg" />
+    <None Remove="Resource\mega_메가에이드.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <PackageReference Include="MySql.Data" Version="9.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\mega_(HOT)고구마라떼.jpg" />
+    <Resource Include="Resource\mega_(HOT)곡물라떼.jpg" />
+    <Resource Include="Resource\mega_(HOT)바닐라라떼.jpg" />
+    <Resource Include="Resource\mega_(HOT)아메리카노.jpg" />
+    <Resource Include="Resource\mega_(HOT)유자차.jpg" />
+    <Resource Include="Resource\mega_(HOT)카페라떼.jpg" />
+    <Resource Include="Resource\mega_(HOT)콜드브루오리지널.jpg" />
+    <Resource Include="Resource\mega_딸기바나나주스.jpg" />
+    <Resource Include="Resource\mega_딸기쿠키프라페.jpg" />
+    <Resource Include="Resource\mega_망고요거트스무디.jpg" />
+    <Resource Include="Resource\mega_매직에이드(블루).jpg" />
+    <Resource Include="Resource\mega_매직에이드(핑크).jpg" />
+    <Resource Include="Resource\mega_메가에이드.jpg" />
   </ItemGroup>
 
 </Project>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace kioskProject.Model
 {
@@ -20,6 +21,18 @@ namespace kioskProject.Model
                 NotifyPropertyChanged(nameof(price));
             }
         }
+
+        private BitmapImage image;
+
+        public BitmapImage Image
+        {
+            get { return image; }
+            set { image = value;
+                NotifyPropertyChanged(nameof(image));
+            }
+        }
+
+
 
         private string name;
 

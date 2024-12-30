@@ -32,15 +32,23 @@ namespace Sever
             chatSever = new TcpListener(IPAddress.Parse("127.0.0.1"), 8888);
 
             InitializeComponent();
-
-          
+            chatSever.Start();
+            _ = HandleClient(chatSever);
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            chatSever.Start();
-            _=HandleClient(chatSever);
+            if(severOnOff.Text == "서버 종료")
+            {
+                chatSever.Stop();
+                severOnOff.Text = "서버 시작";
+            }
+            else if (severOnOff.Text == "서버 시작")
+            {
+                chatSever.Stop();
+                severOnOff.Text = "서버 종료";
+            }
 
         }
 
@@ -99,9 +107,29 @@ namespace Sever
                         byte[] bytSand_Date = Encoding.Default.GetBytes(item + "\r\n");
 
                         string receivedJson = Encoding.Default.GetString(bytSand_Date);
-                        List<string> receivedList = JsonSerializer.Deserialize<List<string>>(receivedJson);
-                        severApp.textBox.Text += receivedList + "\r\n";
-                        project.tttt();
+
+                        Dictionary<string, Dictionary<string, string>> info = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(receivedJson);
+
+                       
+
+                        foreach (var outerKey in info)
+                        {
+                            severApp.Dispatcher.Invoke(() =>
+                            {
+                                severApp.textBox.Text += outerKey.Key+"\r\n";
+                            });
+
+                            foreach (var innerKey in outerKey.Value)
+                            {
+                                severApp.Dispatcher.Invoke(() =>
+                                {
+                                    severApp.textBox.Text += innerKey.Key ;
+                                    severApp.textBox.Text += innerKey.Value;                                    
+                                });                            
+                            }
+                            severApp.textBox.Text += "\r\n";
+                        }                    
+                        project.tttt(info);
                     }             
                 }
 

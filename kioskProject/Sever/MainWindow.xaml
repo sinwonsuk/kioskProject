@@ -8,9 +8,9 @@
         Title="MainWindow" Height="450" Width="221">
     <Grid>
         <Button Margin="0,375,0,0" Click="Button_Click">
-            <TextBlock Text="서버시작"/>
+            <TextBlock x:Name="severOnOff" Text="서버종료"/>
         </Button>
-        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="221" Height="375"/>
+        <TextBox x:Name="textBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Height="375"/>
 
     </Grid>
 </Window>

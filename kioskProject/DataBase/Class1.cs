@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DataBase
 {
@@ -13,12 +14,7 @@ namespace DataBase
         public int asdasd = 0;
 
 
-        string _server = "localhost"; //DB 서버 주소, 로컬일 경우 localhost
-        int _port = 3306; //DB 서버 포트
-        string _database = "new_schema"; //DB 이름
-        string _id = "root"; //계정 아이디
-        string _pw = "root"; //계정 비밀번호
-        string _connectionAddress = "";
+     
         public DbProject()
         {
             //MySQL 연결을 위한 주소 형식
@@ -30,7 +26,7 @@ namespace DataBase
             try
             {
                 // MySQL 연결 명령어
-                MySqlConnection connection = new MySqlConnection("Server=localhost;Database=mysql;Uid=root;Pwd=a1357900");
+                MySqlConnection connection = new MySqlConnection("Server=localhost;Database=sys;Uid=root;Pwd=a1357900");
                 // MySQL 서버 연결 유지
                 connection.Open();
 
@@ -56,18 +52,53 @@ namespace DataBase
         }
 
 
-        public void tttt()
+        public void tttt(Dictionary<string, Dictionary<string, string>> info)
         {
+            List<string> list = new List<string>(); 
+
+            Dictionary<string,string> keyValuePairs = new Dictionary<string,string>();
+
             try
             {
-                using (MySqlConnection mysql = new MySqlConnection("Server=localhost;Database=sys;Uid=root;Pwd=a1357900"))
-                {
+                MySqlConnection mysql = new MySqlConnection("Server=localhost;Database=sys;Uid=root;Pwd=a1357900");
+                
                     mysql.Open();
-                    string insertQuery = string.Format("INSERT INTO test (name, phone) VALUES ('{0}', '{1}');", "1111", "1231225");
-                    MySqlCommand command = new MySqlCommand(insertQuery, mysql);
 
-                    command.ExecuteNonQuery();
-                }
+
+                //for (int i = 0; i < info.Count; i++)
+                //{
+                //    for (int j = 0; j < info[i].Count; j++)
+                //    {
+                //        list.Add(info[i][j]);
+                //    }
+
+                //    string insertQuery = string.Format("INSERT INTO 목록 (name, Price,Quant,TotalPrice) VALUES ('{0}', '{1}', '{2}' ,'{3}');", list[0], list[1], list[2], list[3]);
+                //    MySqlCommand command = new MySqlCommand(insertQuery, mysql);
+                //    command.ExecuteNonQuery();
+
+                //    list.Clear();
+                //}
+
+
+
+
+
+
+                  foreach (var name in info)
+                  {
+                    keyValuePairs.Clear();
+
+                  foreach (var test in name.Value)
+                  {
+                     keyValuePairs.Add(test.Key, test.Value);
+                  }
+                        string insertQuery = string.Format("INSERT INTO 목록 (name, Quant,Price,TotalPrice) VALUES ('{0}', '{1}', '{2}' ,'{3}');", name.Key, keyValuePairs["수량"], keyValuePairs["가격"], keyValuePairs["총가격"]);
+                        MySqlCommand command = new MySqlCommand(insertQuery, mysql);
+                        command.ExecuteNonQuery();
+                  }    
+
+                   
+                
 
             }
             catch (Exception exc)

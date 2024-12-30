@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using System.Xml.Linq;
 
 namespace kioskProject.ViewModel
@@ -60,17 +61,16 @@ namespace kioskProject.ViewModel
 
             Models = new ObservableCollection<Model.Model>
             {
-                new Model.Model { Name = "test1", Price = 500 },
-                new Model.Model { Name = "test2", Price = 600 },
-                new Model.Model { Name = "test3", Price = 700 },
-                new Model.Model { Name = "test4", Price = 800 },
-                new Model.Model { Name = "test5", Price = 800 },
-                new Model.Model { Name = "test6", Price = 800 },
-                new Model.Model { Name = "test7", Price = 800 },
-                new Model.Model { Name = "test8", Price = 800 },
-                new Model.Model { Name = "test9", Price = 800 },
-                new Model.Model { Name = "test10", Price = 800 }
+                new Model.Model { Name = "고구마라떼", Price = 3500 ,Image = new BitmapImage(new Uri("pack://application:,,,/Resource/mega_(HOT)고구마라떼.jpg")) },
+                new Model.Model { Name = "곡물라떼", Price = 3000 ,Image = new BitmapImage(new Uri("pack://application:,,,/Resource/mega_(HOT)곡물라떼.jpg")) },
+                new Model.Model { Name = "바닐라라떼", Price = 3200 ,Image = new BitmapImage(new Uri("pack://application:,,,/Resource/mega_(HOT)바닐라라떼.jpg")) },
+                new Model.Model { Name = "아메리카노", Price = 2500 ,Image = new BitmapImage(new Uri("pack://application:,,,/Resource/mega_(HOT)아메리카노.jpg")) },
+                new Model.Model { Name = "유자차", Price = 3000 ,Image = new BitmapImage(new Uri("pack://application:,,,/Resource/mega_(HOT)유자차.jpg")) },
+                new Model.Model { Name = "카페라떼", Price = 2700 ,Image = new BitmapImage(new Uri("pack://application:,,,/Resource/mega_(HOT)카페라떼.jpg")) },
+                new Model.Model { Name = "콜드브루오리지널", Price = 3300 ,Image = new BitmapImage(new Uri("pack://application:,,,/Resource/mega_(HOT)콜드브루오리지널.jpg")) },
             };
+
+
         }
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
@@ -139,12 +139,28 @@ namespace kioskProject.ViewModel
            
             stream = tcpClient.GetStream();
          
-            string dateToSend = "잘갑니다" + "\r\n";
-         
-            List<string> listToSend = new List<string> { "안녕하세요", "잘갑니다", "또 만나요" };
+            Dictionary<string, Dictionary<string, string>> outerDict = new Dictionary<string, Dictionary<string, string>>();
+
+            List<List<string>> list = new List<List<string>>();
+
+            for (int i = 0; i < orderItemModels.Count; i++)
+            {
+                //list.Add(new List<string>());
+                //list[i].Add(orderItemModels[i].Name);
+                //list[i].Add(orderItemModels[i].Price.ToString());
+                //list[i].Add(orderItemModels[i].Quantity.ToString());
+                //list[i].Add(orderItemModels[i].TotalPrice.ToString());
+
+                Dictionary<string, string> listToSend = new Dictionary<string, string>();              
+                listToSend.Add("가격", orderItemModels[i].Price.ToString());
+                listToSend.Add("수량", orderItemModels[i].Quantity.ToString());
+                listToSend.Add("총가격", orderItemModels[i].TotalPrice.ToString());
+                outerDict[orderItemModels[i].Name] = listToSend;
+
+            }
 
             // 리스트를 JSON 문자열로 직렬화
-            string jsonData = JsonSerializer.Serialize(listToSend);
+            string jsonData = JsonSerializer.Serialize(outerDict);
 
             // JSON 문자열을 바이트 배열로 변환
             byte[] datas = Encoding.Default.GetBytes(jsonData);
@@ -152,6 +168,8 @@ namespace kioskProject.ViewModel
             stream.Write(datas, 0, datas.Length);
 
             totalPrice.TotalPrice = 0;
+
+            orderItemModels.Clear();
         }
 
     }
