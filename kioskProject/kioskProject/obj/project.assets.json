@@ -2611,6 +2611,15 @@
         "runtime": {
           "lib/net8.0/ZstdSharp.dll": {}
         }
+      },
+      "DataBase/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/DataBase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataBase.dll": {}
+        }
       }
     }
   },
@@ -8081,10 +8090,16 @@
         "zstdsharp.port.0.8.0.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
+    },
+    "DataBase/1.0.0": {
+      "type": "project",
+      "path": "../DataBase/DataBase.csproj",
+      "msbuildProject": "../DataBase/DataBase.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "DataBase >= 1.0.0",
       "MvvmLightLibs >= 5.4.1.1",
       "MySql.Data >= 9.1.0"
     ]
@@ -8120,7 +8135,11 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\kioskProject\\kioskProject\\DataBase\\DataBase.csproj": {
+              "projectPath": "C:\\kioskProject\\kioskProject\\DataBase\\DataBase.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

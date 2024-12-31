@@ -84,3 +84,10 @@ C:\kioskProject\kioskProject\kioskProject\bin\Debug\net8.0-windows\runtimes\win-
 C:\kioskProject\kioskProject\kioskProject\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\OrderWindow.g.cs
 C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\OrderWindow.baml
+C:\kioskProject\kioskProject\kioskProject\bin\Debug\net8.0-windows\DataBase.dll
+C:\kioskProject\kioskProject\kioskProject\bin\Debug\net8.0-windows\DataBase.pdb
+C:\kioskProject\kioskProject\kioskProject\bin\Debug\net8.0-windows\DataBase.dll.config
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\Login.g.cs
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\Login.baml
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\Register.g.cs
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\Register.baml

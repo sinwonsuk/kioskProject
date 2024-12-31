@@ -1,0 +1,21 @@
+﻿<Window x:Class="kioskProject.View.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kioskProject.View" 
+        mc:Ignorable="d"
+        Title="Login" Height="242" Width="281">
+
+
+
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="41,68,0,0" TextWrapping="Wrap" Text="아이디" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,0,0,0" TextWrapping="Wrap" Text="비밀번호" VerticalAlignment="Center" RenderTransformOrigin="0.587,-0.479"/>
+        <TextBox HorizontalAlignment="Left" Margin="106,66,0,0" TextWrapping="Wrap" Text="{Binding registerModel.ID}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="106,0,0,0" TextWrapping="Wrap" Text="{Binding registerModel.Password}" VerticalAlignment="Center" Width="120"/>
+        <Button Content="회원가입" HorizontalAlignment="Left" Margin="82,144,0,0" VerticalAlignment="Top" Height="55" Width="108" Command="{Binding adminSignUpClick}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="106,21,0,0" TextWrapping="Wrap" Text="회원가입" VerticalAlignment="Top" Height="27" Width="60"/>
+    </Grid>
+</Window>

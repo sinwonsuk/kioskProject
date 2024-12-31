@@ -13,7 +13,7 @@
         <ViewModel:MainViewModel/>
     </Window.DataContext>
 
-    
+
     <Window.Resources>
         <Style TargetType="TabItem">
             <Setter Property="Background" Value="#FFFF5757"/>
@@ -50,7 +50,7 @@
 
         <TabControl Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Margin="0,43,0,0">
             <TabItem Header="음식"  Background="#FFFF5757" Margin="0,0,-90,0" >
-                <ItemsControl ItemsSource="{Binding Models}" Margin="8,0,0,0"  >
+                <ItemsControl ItemsSource="{Binding page1MenuModels}" Margin="8,0,0,0"  >
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Orientation="Horizontal"/>
@@ -64,7 +64,18 @@
                 </ItemsControl>
             </TabItem>
             <TabItem Header="음식2" Margin="90,0,-202,0">
-
+                <ItemsControl ItemsSource="{Binding page2MenuModels}" Margin="8,0,0,0"  >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <View:Menu DataContext="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </TabItem>
             <TabItem Header="음식3" Margin="202,0,-314,0">
 
@@ -85,5 +96,6 @@
             </ItemsControl>
         </ScrollViewer>
         <View:TotalPrice x:Name="TotalPriceControl" Grid.Row="2" DataContext="{Binding}" Grid.Column="1" Grid.ColumnSpan="1"/>
+        <Button Content="관리자" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="30" Width="66" Command="{Binding adminClick}"/>
     </Grid>
 </Window>

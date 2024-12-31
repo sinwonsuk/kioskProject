@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "kioskProject/1.0.0": {
         "dependencies": {
+          "DataBase": "1.0.0",
           "MvvmLightLibs": "5.4.1.1",
           "MySql.Data": "9.1.0"
         },
@@ -1473,6 +1474,14 @@
             "fileVersion": "0.8.0.0"
           }
         }
+      },
+      "DataBase/1.0.0": {
+        "runtime": {
+          "DataBase.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -2377,6 +2386,11 @@
       "sha512": "sha512-Z62eNBIu8E8YtbqlMy57tK3dV1+m2b9NhPeaYovB5exmLKvrGCqOhJTzrEUH5VyUWU6vwX3c1XHJGhW5HVs8dA==",
       "path": "zstdsharp.port/0.8.0",
       "hashPath": "zstdsharp.port.0.8.0.nupkg.sha512"
+    },
+    "DataBase/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

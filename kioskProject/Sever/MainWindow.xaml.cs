@@ -129,7 +129,7 @@ namespace Sever
                             }
                             severApp.textBox.Text += "\r\n";
                         }                    
-                        project.tttt(info);
+                        project.SendOrder(info);
                     }             
                 }
 

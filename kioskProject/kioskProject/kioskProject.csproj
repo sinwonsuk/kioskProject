@@ -39,6 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataBase\DataBase.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resource\mega_(HOT)고구마라떼.jpg" />
     <Resource Include="Resource\mega_(HOT)곡물라떼.jpg" />
     <Resource Include="Resource\mega_(HOT)바닐라라떼.jpg" />
