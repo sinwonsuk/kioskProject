@@ -1,7 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -15,8 +18,7 @@ namespace DataBase
 
         public DbProject()
         {
-            //MySQL 연결을 위한 주소 형식
-            //_connectionAddress = string.Format("Server={0};Port={1};Database={2};Uid={3};Pwd={4}", _server, _port, _database, _id, _pw);
+          
         }
 
         public void SendOrder(Dictionary<string, Dictionary<string, string>> info)
@@ -39,18 +41,26 @@ namespace DataBase
                     {
                         keyValuePairs.Add(test.Key, test.Value);
                     }
-                    string insertQuery = string.Format("INSERT INTO 목록 (name, Quant,Price,TotalPrice) VALUES ('{0}', '{1}', '{2}' ,'{3}');", name.Key, keyValuePairs["수량"], keyValuePairs["가격"], keyValuePairs["총가격"]);
+                    
+                    string insertQuery = "INSERT INTO 주문목록 (name, Quant, Price, TotalPrice) VALUES (@name, @Quant, @Price, @TotalPrice)";
+
                     MySqlCommand command = new MySqlCommand(insertQuery, mysql);
+
+                    command.Parameters.AddWithValue("@name", name.Key);
+                    command.Parameters.AddWithValue("@Quant", keyValuePairs["수량"]);
+                    command.Parameters.AddWithValue("@Price", keyValuePairs["가격"]);
+                    command.Parameters.AddWithValue("@TotalPrice",  keyValuePairs["총가격"]);
+
                     command.ExecuteNonQuery();
                 }
             }
             catch (Exception exc)
             {
-                Console.WriteLine(asdasd);
+                Console.WriteLine(exc.Message);
             }
         }
 
-        public bool tttt(string id, string password)
+        public bool Login(string id, string password)
         {
            
             MySqlConnection mysql = new MySqlConnection("Server=localhost;Database=sys;Uid=root;Pwd=a1357900");
@@ -78,7 +88,7 @@ namespace DataBase
             }
         }
 
-        public bool Adadadad(string id, string password)
+        public bool register(string id, string password)
         {
             try
             {
@@ -121,16 +131,14 @@ namespace DataBase
 
             catch (Exception exc)
             {
-                Console.WriteLine(asdasd);
+                Console.WriteLine(exc.Message);
             }
 
             return false;
         }
-        public void adasdadad(List<MenuInfo> menuItems)
+        public void GiveFoodInfo(List<MenuInfo> menuItems)
         {
-          
-        
-
+                 
             MySqlConnection mysql = new MySqlConnection("Server=localhost;Database=sys;Uid=root;Pwd=a1357900");
 
             mysql.Open();
@@ -173,6 +181,85 @@ namespace DataBase
 
             }         
         }
+
+        public void ItemDelete(string name)
+        {
+            try
+            {
+                MySqlConnection mysql = new MySqlConnection("Server=localhost;Database=sys;Uid=root;Pwd=a1357900");
+
+                mysql.Open();
+
+                string selectQuery = "DELETE  FROM 음식정보 WHERE Name = @name";
+
+
+                MySqlCommand command = new MySqlCommand(selectQuery, mysql);
+
+                command.Parameters.AddWithValue("@name", name);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void ItemUpdate(string originalName, string name, int price, string image)
+        {
+            try
+            {
+               
+
+                MySqlConnection mysql = new MySqlConnection("Server=localhost;Database=sys;Uid=root;Pwd=a1357900");
+                mysql.Open();
+
+                string updateQuery = "UPDATE 음식정보 SET Name = @name, Price = @price, Image = @image WHERE Name = @originalName";
+
+                MySqlCommand command = new MySqlCommand(updateQuery, mysql);
+
+                string base64Image = image;
+
+
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@price", price);
+                command.Parameters.AddWithValue("@image", image);
+                command.Parameters.AddWithValue("@originalName", originalName);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void SendDB(string name,int price,string image,int page)
+        {
+           
+            try
+            {
+                MySqlConnection mysql = new MySqlConnection("Server=localhost;Database=sys;Uid=root;Pwd=a1357900");
+
+                mysql.Open();
+
+                string insertQuery = "INSERT INTO 음식정보 (Name, Price, Image, Page) VALUES (@name, @price, @image, @page)";
+
+                MySqlCommand command = new MySqlCommand(insertQuery, mysql);
+
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@price", price);
+                command.Parameters.AddWithValue("@image", image);
+                command.Parameters.AddWithValue("@page", page);
+
+                command.ExecuteNonQuery();
+               
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(asdasd);
+            }
+        }
+
     }
 
     public class MenuInfo

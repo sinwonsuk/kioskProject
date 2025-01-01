@@ -91,3 +91,7 @@ C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\Login.g.
 C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\Login.baml
 C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\Register.g.cs
 C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\Register.baml
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\AdminWindow.g.cs
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\AdminWindow.baml
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\AdminItem.g.cs
+C:\kioskProject\kioskProject\kioskProject\obj\Debug\net8.0-windows\View\AdminItem.baml

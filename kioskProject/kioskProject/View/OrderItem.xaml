@@ -27,7 +27,7 @@
             </Button>
 
             <TextBlock Grid.Column="4" Text="{Binding TotalPrice}" Foreground="Black" FontSize="20" TextAlignment="Center" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" Width="44" Margin="0,4,0,0" />
-            <Button Grid.Column="5" FontSize="20" Margin="1,0,0,0"  Command="{Binding DataContext.cancel, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}">
+            <Button Grid.Column="5" FontSize="20" Margin="1,0,0,0"  Command="{Binding DataContext.cancelClick, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}">
                 <TextBlock Text="취소" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             </Button>
         </Grid>

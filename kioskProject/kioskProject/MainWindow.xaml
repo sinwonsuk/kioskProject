@@ -7,11 +7,11 @@
         xmlns:View="clr-namespace:kioskProject.View"
         xmlns:ViewModel="clr-namespace:kioskProject.ViewModel"     
         mc:Ignorable="d"
-        Title="MainWindow" Height="880" Width="630">
+        Title="MainWindow" Height="880" Width="670">
 
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <ViewModel:MainViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
 
 
     <Window.Resources>
@@ -32,7 +32,7 @@
 
 
 
-    <Grid Height="844" VerticalAlignment="Bottom">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="471*"/>
             <ColumnDefinition Width="210*"/>
@@ -47,40 +47,41 @@
             <TextBlock TextWrapping="Wrap" Text="Kiosk" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" Margin="0,0,0,650"/>
         </Grid>
 
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2">
+            <TabControl Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Margin="0,43,0,0">
+                <TabItem Header="음식"  Background="#FFFF5757" Margin="0,0,-90,0" >
+                    <ItemsControl ItemsSource="{Binding page1ItemModels}" Margin="8,0,0,0"  >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <View:Menu DataContext="{Binding}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </TabItem>
+                <TabItem Header="음식2" Margin="90,0,-202,0">
+                    <ItemsControl ItemsSource="{Binding page2ItemModels}" Margin="8,0,0,0"  >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <View:Menu DataContext="{Binding}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </TabItem>
+                <TabItem Header="음식3" Margin="202,0,-314,0">
 
-        <TabControl Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Margin="0,43,0,0">
-            <TabItem Header="음식"  Background="#FFFF5757" Margin="0,0,-90,0" >
-                <ItemsControl ItemsSource="{Binding page1MenuModels}" Margin="8,0,0,0"  >
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <View:Menu DataContext="{Binding}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </TabItem>
-            <TabItem Header="음식2" Margin="90,0,-202,0">
-                <ItemsControl ItemsSource="{Binding page2MenuModels}" Margin="8,0,0,0"  >
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <View:Menu DataContext="{Binding}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </TabItem>
-            <TabItem Header="음식3" Margin="202,0,-314,0">
-
-            </TabItem>
-        </TabControl>
+                </TabItem>
+            </TabControl>
+        </ScrollViewer>
         <ScrollViewer HorizontalScrollBarVisibility="Auto"  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Margin="0,2,0,0">
             <ItemsControl ItemsSource="{Binding orderItemModels}" Grid.Column="0" Grid.RowSpan="2" Width="448">
                 <ItemsControl.ItemsPanel>

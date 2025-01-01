@@ -2,35 +2,26 @@
 using GalaSoft.MvvmLight.Command;
 using kioskProject.Model;
 using kioskProject.View;
-using Microsoft.VisualBasic.Logging;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Formats.Tar;
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Net.Sockets;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-using System.Xml.Linq;
-
 namespace kioskProject.ViewModel
 {
     class MainViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Model.Model> page1MenuModels { get; set; }
-        public ObservableCollection<Model.Model> page2MenuModels { get; set; }
+        public ObservableCollection<Model.Model> page1ItemModels { get; set; }
+        public ObservableCollection<Model.Model> page2ItemModels { get; set; }
+
+        public ObservableCollection<AdminItemModel> page1adminItemModels { get; set; }
+        public ObservableCollection<AdminItemModel> page2adminItemModels { get; set; }
+
 
         public LoginModel loginModel { get; set; }
         public RegisterModel registerModel { get; set; }
@@ -40,32 +31,34 @@ namespace kioskProject.ViewModel
 
         public TotalPriceModel totalPrice { get; set; }
 
+        public AdminItemModel adminItemModel { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
         DbProject dbProject;
 
+        Sever sever;
+
         public ICommand? menuClick { get; set; }
         public ICommand? plusClick { get; set; }
         public ICommand? musClick { get; set; }
-
         public ICommand? cancelClick { get; set; }
-
         public ICommand? payClick { get; set; }
-
         public ICommand? adminClick { get; set; }
-
         public ICommand? adminLoginClick { get; set; }
         public ICommand? adminRegisterClick { get; set; }
-
         public ICommand? adminSignUpClick { get; set; }
 
+        public ICommand? adminImageChangeClick { get; set; }
 
-        TcpClient tcpClient;
-        NetworkStream stream = null;
+        public ICommand? adminItemDeleteClick { get; set; }
+        public ICommand? adminItemChangeClick { get; set; }
+
+        public ICommand? adminItemAddClick { get; set; }
+
+       
 
         List<MenuInfo> list = new List<MenuInfo>();
-
 
         bool check = false;
         public MainViewModel()
@@ -77,10 +70,10 @@ namespace kioskProject.ViewModel
 
             // 데이터 베이스 
             dbProject = new DbProject();
-            dbProject.adasdadad(list);
+            dbProject.GiveFoodInfo(list);
 
             // 서버 
-            tcpClient = new TcpClient();
+            sever = new Sever();
 
 
 
@@ -94,32 +87,55 @@ namespace kioskProject.ViewModel
             adminLoginClick = new RelayCommand<object>(AdminLoginButton);
             adminRegisterClick = new RelayCommand<object>(AdmimRegisterButton);
             adminSignUpClick = new RelayCommand<object>(AdminSignUp);
+            adminImageChangeClick = new RelayCommand<object>(AdminImageChange);
+            adminItemDeleteClick = new RelayCommand<object>(AdminDeleteItem);
+            adminItemChangeClick = new RelayCommand<object>(AdminChangeItem);
+            adminItemAddClick = new RelayCommand<object>(AdminAddItem);
             // 모델 클래스
             totalPrice = new TotalPriceModel();
+            adminItemModel = new AdminItemModel();
             orderItemModels = new ObservableCollection<OrderItemModel>();
-            page1MenuModels = new ObservableCollection<Model.Model>();
-            page2MenuModels = new ObservableCollection<Model.Model>();
-
-
+            page1ItemModels = new ObservableCollection<Model.Model>();
+            page2ItemModels = new ObservableCollection<Model.Model>();
+            page1adminItemModels = new ObservableCollection<AdminItemModel>();
+            page2adminItemModels = new ObservableCollection<AdminItemModel>();
             // 데이터 베이스 정보를 기반으로 화면 띄우기
             for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].Page == "1")
                 {
-                    page1MenuModels.Add(new Model.Model
+                    page1ItemModels.Add(new Model.Model
                     {
                         Name = list[i].Name,
                         Price = list[i].Price,
                         Image = new BitmapImage(new Uri(list[i].Image))
                     });
+
+                    page1adminItemModels.Add(new AdminItemModel
+                    {
+                        OriginalName = list[i].Name,
+                        OriginalPrice = list[i].Price,
+                        OriginalImage = new BitmapImage(new Uri(list[i].Image)),
+                        Page = 1
+
+                    });
+
                 }
                 if (list[i].Page == "2")
                 {
-                    page2MenuModels.Add(new Model.Model
+                    page2ItemModels.Add(new Model.Model
                     {
                         Name = list[i].Name,
                         Price = list[i].Price,
                         Image = new BitmapImage(new Uri(list[i].Image))
+                    });
+
+                    page2adminItemModels.Add(new AdminItemModel
+                    {
+                        OriginalName = list[i].Name,
+                        OriginalPrice = list[i].Price,
+                        OriginalImage = new BitmapImage(new Uri(list[i].Image)),
+                        Page = 2
                     });
                 }
             }
@@ -135,12 +151,12 @@ namespace kioskProject.ViewModel
 
         void MenuClick(object e)
         {
-            Model.Model? ad = e as Model.Model;
+            Model.Model? menu = e as Model.Model;
 
 
             for (int j = 0; j < orderItemModels.Count; j++)
             {
-                if (ad.Name == orderItemModels[j].Name)
+                if (menu.Name == orderItemModels[j].Name)
                 {
                     orderItemModels[j].Quantity += 1;
                     orderItemModels[j].TotalPrice += orderItemModels[j].Price;
@@ -149,51 +165,51 @@ namespace kioskProject.ViewModel
                 }
             }
 
-            OrderItemModel model = new OrderItemModel { Name = ad.Name, Price = ad.Price, TotalPrice = ad.Price };
+            OrderItemModel model = new OrderItemModel { Name = menu.Name, Price = menu.Price, TotalPrice = menu.Price };
             orderItemModels.Add(model);
-            totalPrice.TotalPrice += ad.Price;
+            totalPrice.TotalPrice += menu.Price;
         }
         void PlusClick(object e)
         {
-            OrderItemModel? ad = e as OrderItemModel;
+            OrderItemModel? orderitemModel = e as OrderItemModel;
 
-            ad.Quantity += 1;
-            ad.TotalPrice += ad.Price;
-            totalPrice.TotalPrice += ad.Price;
+            orderitemModel.Quantity += 1;
+            orderitemModel.TotalPrice += orderitemModel.Price;
+            totalPrice.TotalPrice += orderitemModel.Price;
         }
 
         void MusClick(object e)
         {
-            OrderItemModel? ad = e as OrderItemModel;
+            OrderItemModel? orderitemModel = e as OrderItemModel;
 
-            if (ad.Quantity == 1)
+            if (orderitemModel.Quantity == 1)
             {
                 return;
             }
 
-            ad.Quantity -= 1;
-            ad.TotalPrice -= ad.Price;
-            totalPrice.TotalPrice -= ad.Price;
+            orderitemModel.Quantity -= 1;
+            orderitemModel.TotalPrice -= orderitemModel.Price;
+            totalPrice.TotalPrice -= orderitemModel.Price;
         }
 
         void Cancel(object e)
         {
-            OrderItemModel? ad = e as OrderItemModel;
+            OrderItemModel? orderitemModel = e as OrderItemModel;
 
-            orderItemModels.Remove(ad);
+            orderItemModels.Remove(orderitemModel);
 
-            totalPrice.TotalPrice -= ad.TotalPrice;
+            totalPrice.TotalPrice -= orderitemModel.TotalPrice;
         }
         void Pay(object e)
         {
-            if (check == false)
-            {
-                tcpClient.Connect(IPAddress.Parse("127.0.0.1"), 8888);
-            }
+            //if (check == false)
+            //{
+            //    tcpClient.Connect(IPAddress.Parse("127.0.0.1"), 8888);
+            //}
 
-            check = true;
+            //check = true;
 
-            stream = tcpClient.GetStream();
+            //stream = tcpClient.GetStream();
 
             Dictionary<string, Dictionary<string, string>> outerDict = new Dictionary<string, Dictionary<string, string>>();
 
@@ -210,13 +226,16 @@ namespace kioskProject.ViewModel
 
             }
 
+            sever.SeverStart(outerDict);
+
+
             // 리스트를 JSON 문자열로 직렬화
-            string jsonData = JsonSerializer.Serialize(outerDict);
+            //string jsonData = JsonSerializer.Serialize(outerDict);
 
-            // JSON 문자열을 바이트 배열로 변환
-            byte[] datas = Encoding.Default.GetBytes(jsonData);
+            //// JSON 문자열을 바이트 배열로 변환
+            //byte[] datas = Encoding.Default.GetBytes(jsonData);
 
-            stream.Write(datas, 0, datas.Length);
+            //stream.Write(datas, 0, datas.Length);
 
             totalPrice.TotalPrice = 0;
 
@@ -228,8 +247,6 @@ namespace kioskProject.ViewModel
             login.DataContext = this;
             login.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             login.ShowDialog();
-
-
         }
 
         void AdminLoginButton(object parameter)
@@ -240,12 +257,15 @@ namespace kioskProject.ViewModel
             var login = parameter as Login;
 
 
-            if (dbProject.tttt(id, password) == true)
+            if (dbProject.Login(id, password) == true)
             {
                 System.Windows.MessageBox.Show("로그인되었습니다");
                 login.Close();
 
-               
+                AdminWindow adminItem = new AdminWindow();
+                adminItem.DataContext = this;
+                adminItem.ShowDialog();
+
             }
             else
             {
@@ -259,28 +279,151 @@ namespace kioskProject.ViewModel
             register.DataContext = this;
             register.ShowDialog();
 
-
-
-
         }
         void AdminSignUp(object parameter)
         {
-
             string password = registerModel.Password;
             string id = registerModel.ID;
-
             var register = parameter as Register;
-
-            if (dbProject.Adadadad(id, password) == true)
+            if (dbProject.register(id, password) == true)
             {
                 register.Close();
             }
-            else
-            {
-                register.Close();
-            }
-
+           
         }
+
+        void AdminImageChange(object parameter)
+        {
+            var adminItemModel = parameter as AdminItemModel;
+
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+
+            openFileDialog.Filter = "All files (*.*)|*.*";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string path = openFileDialog.FileName;
+
+                adminItemModel.ChangeImage = new BitmapImage(new Uri(path));
+
+                adminItemModel.ImagePath = path;
+            }
+        }
+
+        void AdminDeleteItem(object parameter)
+        {           
+            if(DeleteProcess(parameter, page1ItemModels,page1adminItemModels)==true)
+            {
+                return;
+            }
+            if (DeleteProcess(parameter, page2ItemModels, page2adminItemModels) == true)
+            {
+                return;
+            }         
+        }     
+        void AdminChangeItem(object parameter)
+        {
+            if(AdminChangeProcess(parameter,page1ItemModels)==true)
+            {
+                return;
+            }
+            if (AdminChangeProcess(parameter, page2ItemModels) == true)
+            {
+                return;
+            }          
+        }
+        void AdminAddItem(object parameter)
+        {
+            if (AdminAddProcess(parameter, page1ItemModels, page1adminItemModels) == true)
+            {
+                return;
+            }
+            if (AdminAddProcess(parameter, page2ItemModels, page2adminItemModels) == true)
+            {
+                return;
+            }
+        }
+        bool AdminAddProcess(object parameter, ObservableCollection<Model.Model> itemModels, ObservableCollection<AdminItemModel> adminItemModels)
+        {
+            var adminItemModel = parameter as AdminItemModel;
+
+            for (int i = 0; i < itemModels.Count; i++)
+            {
+                if (itemModels[i].Name == adminItemModel.OriginalName)
+                {
+                    dbProject.SendDB(adminItemModel.ChangeName, adminItemModel.ChangePrice, adminItemModel.ImagePath, adminItemModel.Page);
+
+                    itemModels.Add(new Model.Model
+                    {
+                        Name = adminItemModel.ChangeName,
+                        Price = adminItemModel.ChangePrice,
+                        Image = adminItemModel.ChangeImage
+                    });
+                    adminItemModels.Add(new AdminItemModel
+                    {
+                        OriginalName = adminItemModel.ChangeName,
+                        OriginalPrice = adminItemModel.ChangePrice,
+                        OriginalImage = adminItemModel.ChangeImage
+                    });
+
+                    System.Windows.MessageBox.Show("제품이 추가되었습니다");
+
+                    adminItemModel.ChangeImage = null;
+                    adminItemModel.ChangePrice = 0;
+                    adminItemModel.ChangeName = "";
+
+                    return true;
+                }
+            }
+            return false;
+        }    
+        bool DeleteProcess(object parameter, ObservableCollection<Model.Model> itemModels, ObservableCollection<AdminItemModel> adminItemModels)
+        {
+            var adminItemModel = parameter as AdminItemModel;
+
+            for (int i = 0; i < itemModels.Count; i++)
+            {
+                if (itemModels[i].Name == adminItemModel.OriginalName)
+                {
+                    itemModels.Remove(itemModels[i]);
+                    adminItemModels.Remove(adminItemModel);
+                    dbProject.ItemDelete(adminItemModel.OriginalName);
+
+                    System.Windows.MessageBox.Show("제품이 삭제되었습니다");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        bool AdminChangeProcess(object parameter, ObservableCollection<Model.Model> itemModels)
+        {
+            var adminItemModel = parameter as AdminItemModel;
+
+            for (int i = 0; i < itemModels.Count; i++)
+            {
+                if (itemModels[i].Name == adminItemModel.OriginalName)
+                {
+                    dbProject.ItemUpdate(adminItemModel.OriginalName, adminItemModel.ChangeName, adminItemModel.ChangePrice, adminItemModel.ImagePath);
+
+                    itemModels[i].Price = adminItemModel.ChangePrice;
+                    itemModels[i].Name = adminItemModel.ChangeName;
+                    itemModels[i].Image = adminItemModel.ChangeImage;
+
+                    adminItemModel.OriginalImage = adminItemModel.ChangeImage;
+                    adminItemModel.OriginalPrice = adminItemModel.ChangePrice;
+                    adminItemModel.OriginalName = adminItemModel.ChangeName;
+
+                    adminItemModel.ChangeImage = null;
+                    adminItemModel.ChangePrice = 0;
+                    adminItemModel.ChangeName = "";
+
+                    System.Windows.MessageBox.Show("제품이 변경되었습니다");
+                    return true;
+                }
+            }
+            return false;
+        }       
     }
 }
 

@@ -31,6 +31,7 @@
     <None Remove="Resource\mega_매직에이드%28블루%29.jpg" />
     <None Remove="Resource\mega_매직에이드%28핑크%29.jpg" />
     <None Remove="Resource\mega_메가에이드.jpg" />
+    <None Remove="View\aaaa.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,6 +57,7 @@
     <Resource Include="Resource\mega_매직에이드(블루).jpg" />
     <Resource Include="Resource\mega_매직에이드(핑크).jpg" />
     <Resource Include="Resource\mega_메가에이드.jpg" />
+    <Resource Include="View\aaaa.png" />
   </ItemGroup>
 
 </Project>
