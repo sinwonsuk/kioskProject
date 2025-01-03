@@ -21,7 +21,7 @@ namespace DataBase
           
         }
 
-        public void SendOrder(Dictionary<string, Dictionary<string, string>> info)
+        public void SendOrder(OrderInfo orderInfo)
         {
             List<string> list = new List<string>();
 
@@ -33,26 +33,18 @@ namespace DataBase
 
                 mysql.Open();
 
-                foreach (var name in info)
-                {
-                    keyValuePairs.Clear();
+               
+                string insertQuery = "INSERT INTO 주문목록 (name, Quant, Price, TotalPrice) VALUES (@name, @Quant, @Price, @TotalPrice)";
 
-                    foreach (var test in name.Value)
-                    {
-                        keyValuePairs.Add(test.Key, test.Value);
-                    }
-                    
-                    string insertQuery = "INSERT INTO 주문목록 (name, Quant, Price, TotalPrice) VALUES (@name, @Quant, @Price, @TotalPrice)";
+                MySqlCommand command = new MySqlCommand(insertQuery, mysql);
 
-                    MySqlCommand command = new MySqlCommand(insertQuery, mysql);
+                command.Parameters.AddWithValue("@name", orderInfo.Name);
+                command.Parameters.AddWithValue("@Quant", orderInfo.Quantity);
+                command.Parameters.AddWithValue("@Price", orderInfo.Price);
+                command.Parameters.AddWithValue("@TotalPrice", orderInfo.TotalPrice);
 
-                    command.Parameters.AddWithValue("@name", name.Key);
-                    command.Parameters.AddWithValue("@Quant", keyValuePairs["수량"]);
-                    command.Parameters.AddWithValue("@Price", keyValuePairs["가격"]);
-                    command.Parameters.AddWithValue("@TotalPrice",  keyValuePairs["총가격"]);
-
-                    command.ExecuteNonQuery();
-                }
+                command.ExecuteNonQuery();
+               
             }
             catch (Exception exc)
             {
@@ -107,7 +99,7 @@ namespace DataBase
 
                 if (userCount > 0)
                 {
-                    MessageBox.Show("등록된 정보 입니다");
+                   
                     return false;
                 }
                 else
@@ -122,8 +114,7 @@ namespace DataBase
                     command.Parameters.AddWithValue("@newid", newid);
                     command.Parameters.AddWithValue("@newpassword", newpassword);
 
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("가입되었습니다");
+                    command.ExecuteNonQuery();                  
                     return true;
                 }
 
@@ -205,7 +196,7 @@ namespace DataBase
             }
         }
 
-        public void ItemUpdate(string originalName, string name, int price, string image)
+        public void ItemUpdate(string originalName, string name, string price, string image)
         {
             try
             {
@@ -233,7 +224,7 @@ namespace DataBase
                 MessageBox.Show(ex.Message);
             }
         }
-        public void SendDB(string name,int price,string image,int page)
+        public void SendDB(string name,string price,string image,string page)
         {
            
             try
@@ -263,11 +254,19 @@ namespace DataBase
     }
 
     public class MenuInfo
-    {
-       
+    {    
         public string Name { get; set; }
         public int Price { get; set; }
         public string Image { get; set; }
         public string Page { get; set; }
+    }
+
+    public class OrderInfo
+    {
+        public string SeverID { get; set; }
+        public string Name { get; set; }
+        public string Price { get; set; }
+        public string Quantity { get; set; }
+        public string TotalPrice { get; set; }
     }
 }

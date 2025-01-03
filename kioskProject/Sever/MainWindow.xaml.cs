@@ -3,18 +3,11 @@ using System.Net;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.IO;
 using System.Text.Json;
-using System.Windows.Interop;
 using DataBase;
-using System.Diagnostics;
+
+using System.Collections;
+
 
 namespace Sever
 {
@@ -24,8 +17,8 @@ namespace Sever
     public partial class SeverApp : Window
     {
         TcpListener chatSever;
-
-       
+        bool test= false;
+        Socket socketClient;
 
         public SeverApp()
         {
@@ -33,8 +26,9 @@ namespace Sever
 
             InitializeComponent();
             chatSever.Start();
-            _ = HandleClient(chatSever);
 
+            _ = HandleClient(chatSever);
+      
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -57,11 +51,16 @@ namespace Sever
             while (true)
             {
                 Socket socketClient;
-
                 socketClient = await client.AcceptSocketAsync();
-
                 ClientHandler clientHandler = new ClientHandler();
                 clientHandler.ClientHandler_Setup(this, socketClient, textBox);
+
+                if (test == false)
+                {
+                    clientHandler.SendItems();
+                    test = true;
+                }
+
                 _ = clientHandler.Chat_Process();
             }
         }
@@ -91,8 +90,7 @@ namespace Sever
             while (true)
             {
 
-              
-                byte[] buffer = new byte[1024];
+                byte[] buffer = new byte[2048];
                 
                 int check = await netStream.ReadAsync(buffer, 0, buffer.Length);
 
@@ -100,46 +98,88 @@ namespace Sever
 
                 string[] msgs = msg.Split('\n');
 
-                if (msg != null)
+                ArrayList infos = JsonSerializer.Deserialize<ArrayList>(msg);
+
+
+                if (infos != null)
                 {
-                    foreach (var item in msgs)
+                    string infosList = infos[0].ToString();
+
+                    if (infosList == "Login")
                     {
-                        byte[] bytSand_Date = Encoding.Default.GetBytes(item + "\r\n");
+                        string responseString = JsonSerializer.Serialize(project.Login(infos[1]?.ToString(), infos[2]?.ToString())); // 'true'를 직렬화하여 JSON 문자열로 변환
+                        byte[] responseData = Encoding.UTF8.GetBytes(responseString + "\r\n");  // 문자열을 바이트 배열로 변환
+                        netStream.Write(responseData, 0, responseData.Length);
+                    }
+                    else if (infosList == "Register")
+                    {
+                        string responseString = JsonSerializer.Serialize(project.register(infos[1]?.ToString(), infos[2]?.ToString())); // 'true'를 직렬화하여 JSON 문자열로 변환
+                        byte[] responseData = Encoding.UTF8.GetBytes(responseString + "\r\n");  // 문자열을 바이트 배열로 변환
+                        await netStream.WriteAsync(responseData, 0, responseData.Length);
+                    }
+                    else if(infosList == "Delete")
+                    {
+                        project.ItemDelete(infos[1]?.ToString());                   
+                    }
+                    else if(infosList == "Add")
+                    {
+                        project.SendDB(infos[1]?.ToString(),infos[2]?.ToString(), infos[3]?.ToString(), infos[4]?.ToString());
+                    }
+                    else if (infosList == "Change")
+                    {
+                        project.ItemUpdate(infos[1]?.ToString(),infos[2]?.ToString(), infos[3]?.ToString(), infos[4]?.ToString());
+                    }
 
-                        string receivedJson = Encoding.Default.GetString(bytSand_Date);
 
-                        Dictionary<string, Dictionary<string, string>> info = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(receivedJson);
-
-                       
-
-                        foreach (var outerKey in info)
+                    else
+                    {
+                        foreach (object objcet in infos)
                         {
-                            severApp.Dispatcher.Invoke(() =>
-                            {
-                                severApp.textBox.Text += outerKey.Key+"\r\n";
-                            });
+                            string find = objcet.GetType().ToString();
 
-                            foreach (var innerKey in outerKey.Value)
+
+                            if (objcet is JsonElement jsonElement)
                             {
+                                OrderInfo orderinfo = jsonElement.Deserialize<OrderInfo>();
+
                                 severApp.Dispatcher.Invoke(() =>
                                 {
-                                    severApp.textBox.Text += innerKey.Key ;
-                                    severApp.textBox.Text += innerKey.Value;                                    
-                                });                            
+                                    severApp.textBox.Text += "이름 : "+ orderinfo.Name + "\r\n";
+                                    severApp.textBox.Text += "총수량 : " +orderinfo.Quantity + "\r\n";
+                                    severApp.textBox.Text += "가격 : " +orderinfo.Price + "\r\n";
+                                    severApp.textBox.Text += "총가격 : " +orderinfo.TotalPrice + "\r\n";
+                                });
+
+                                project.SendOrder(orderinfo);
                             }
-                            severApp.textBox.Text += "\r\n";
-                        }                    
-                        project.SendOrder(info);
-                    }             
+                        }                     
+                    }
                 }
-
-            }
-
-
-             
-
-               
-            
+                         
+            }        
         }
+
+        public bool SendItems()
+        {
+            try
+            {
+                List<MenuInfo> infos = new List<MenuInfo>();
+
+                project.GiveFoodInfo(infos);
+
+                string jsonString = JsonSerializer.Serialize(infos);
+
+                byte[] bytSand_Date = Encoding.Default.GetBytes(jsonString + "\r\n");
+             
+                netStream.Write(bytSand_Date, 0, bytSand_Date.Length);
+                return true;
+            }
+            catch (Exception ex)
+            {             
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
     }
 }

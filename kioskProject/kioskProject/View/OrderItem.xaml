@@ -26,7 +26,7 @@
                 <TextBlock Text="-" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,5"/>
             </Button>
 
-            <TextBlock Grid.Column="4" Text="{Binding TotalPrice}" Foreground="Black" FontSize="20" TextAlignment="Center" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" Width="44" Margin="0,4,0,0" />
+            <TextBlock Grid.Column="4" Text="{Binding TotalPrice}" Foreground="Black" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" Width="44" Margin="0,8,0,-4" />
             <Button Grid.Column="5" FontSize="20" Margin="1,0,0,0"  Command="{Binding DataContext.cancelClick, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}">
                 <TextBlock Text="취소" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             </Button>

@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using kioskProject.Model;
 using kioskProject.View;
+using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net;
@@ -70,12 +71,12 @@ namespace kioskProject.ViewModel
 
             // 데이터 베이스 
             dbProject = new DbProject();
-            dbProject.GiveFoodInfo(list);
+           // dbProject.GiveFoodInfo(list);
 
             // 서버 
             sever = new Sever();
 
-
+            sever.SeverStart(ref list);
 
             // 이벤트 클릭 
             menuClick = new RelayCommand<object>(MenuClick);
@@ -99,6 +100,7 @@ namespace kioskProject.ViewModel
             page2ItemModels = new ObservableCollection<Model.Model>();
             page1adminItemModels = new ObservableCollection<AdminItemModel>();
             page2adminItemModels = new ObservableCollection<AdminItemModel>();
+
             // 데이터 베이스 정보를 기반으로 화면 띄우기
             for (int i = 0; i < list.Count; i++)
             {
@@ -202,40 +204,24 @@ namespace kioskProject.ViewModel
         }
         void Pay(object e)
         {
-            //if (check == false)
-            //{
-            //    tcpClient.Connect(IPAddress.Parse("127.0.0.1"), 8888);
-            //}
-
-            //check = true;
-
-            //stream = tcpClient.GetStream();
-
+          
             Dictionary<string, Dictionary<string, string>> outerDict = new Dictionary<string, Dictionary<string, string>>();
 
-            List<List<string>> list = new List<List<string>>();
+            ArrayList arrayList = new ArrayList();
 
             for (int i = 0; i < orderItemModels.Count; i++)
             {
-
-                Dictionary<string, string> listToSend = new Dictionary<string, string>();
-                listToSend.Add("가격", orderItemModels[i].Price.ToString());
-                listToSend.Add("수량", orderItemModels[i].Quantity.ToString());
-                listToSend.Add("총가격", orderItemModels[i].TotalPrice.ToString());
-                outerDict[orderItemModels[i].Name] = listToSend;
-
+                arrayList.Add(new OrderInfo
+                {
+                    SeverID = "Pay",
+                    Price = orderItemModels[i].Price.ToString(),
+                    Quantity = orderItemModels[i].Quantity.ToString(),
+                    Name = orderItemModels[i].Name,
+                    TotalPrice = orderItemModels[i].TotalPrice.ToString()
+                });         
             }
 
-            sever.SeverStart(outerDict);
-
-
-            // 리스트를 JSON 문자열로 직렬화
-            //string jsonData = JsonSerializer.Serialize(outerDict);
-
-            //// JSON 문자열을 바이트 배열로 변환
-            //byte[] datas = Encoding.Default.GetBytes(jsonData);
-
-            //stream.Write(datas, 0, datas.Length);
+            sever.PayStart(arrayList);      
 
             totalPrice.TotalPrice = 0;
 
@@ -256,8 +242,9 @@ namespace kioskProject.ViewModel
 
             var login = parameter as Login;
 
+         
 
-            if (dbProject.Login(id, password) == true)
+            if (sever.Login(id, password) == true)
             {
                 System.Windows.MessageBox.Show("로그인되었습니다");
                 login.Close();
@@ -265,7 +252,6 @@ namespace kioskProject.ViewModel
                 AdminWindow adminItem = new AdminWindow();
                 adminItem.DataContext = this;
                 adminItem.ShowDialog();
-
             }
             else
             {
@@ -285,11 +271,17 @@ namespace kioskProject.ViewModel
             string password = registerModel.Password;
             string id = registerModel.ID;
             var register = parameter as Register;
-            if (dbProject.register(id, password) == true)
+
+        
+            if (sever.Register(id, password) == true)
             {
-                register.Close();
+                System.Windows.MessageBox.Show("등록되었습니다");
+                register?.Close();
+            }          
+            else
+            {
+                System.Windows.MessageBox.Show("등록된 정보 입니다");
             }
-           
         }
 
         void AdminImageChange(object parameter)
@@ -351,7 +343,7 @@ namespace kioskProject.ViewModel
             {
                 if (itemModels[i].Name == adminItemModel.OriginalName)
                 {
-                    dbProject.SendDB(adminItemModel.ChangeName, adminItemModel.ChangePrice, adminItemModel.ImagePath, adminItemModel.Page);
+                    sever.Add(adminItemModel.ChangeName, adminItemModel.ChangePrice, adminItemModel.ImagePath, adminItemModel.Page);
 
                     itemModels.Add(new Model.Model
                     {
@@ -387,8 +379,7 @@ namespace kioskProject.ViewModel
                 {
                     itemModels.Remove(itemModels[i]);
                     adminItemModels.Remove(adminItemModel);
-                    dbProject.ItemDelete(adminItemModel.OriginalName);
-
+                    sever.Delete(adminItemModel.OriginalName);
                     System.Windows.MessageBox.Show("제품이 삭제되었습니다");
                     return true;
                 }
@@ -404,7 +395,8 @@ namespace kioskProject.ViewModel
             {
                 if (itemModels[i].Name == adminItemModel.OriginalName)
                 {
-                    dbProject.ItemUpdate(adminItemModel.OriginalName, adminItemModel.ChangeName, adminItemModel.ChangePrice, adminItemModel.ImagePath);
+
+                    sever.ItemUpdate(adminItemModel.OriginalName, adminItemModel.ChangeName, adminItemModel.ChangePrice.ToString(), adminItemModel.ImagePath);
 
                     itemModels[i].Price = adminItemModel.ChangePrice;
                     itemModels[i].Name = adminItemModel.ChangeName;
