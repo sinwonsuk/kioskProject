@@ -29,7 +29,8 @@
 ![스크린샷 2025-01-04 142437](https://github.com/user-attachments/assets/1cf5791a-3f0b-4eda-8e9f-c5fdfb726d00)
 
 ### 2. 결제
-- 결제를 하면 서버에서 텍스트박스를 통해 주문 목록을 볼수있으며, db로 정보가 넘어갑니다. 
+- 결제를 하면 서버에서 텍스트박스를 통해 주문 목록을 볼수있으며, db로 정보가 넘어갑니다.
+- 
 ![스크린샷 2025-01-04 150108](https://github.com/user-attachments/assets/c4f594c6-01d5-43ce-88d9-5715cd3e5ca7)
 
 ### 3. 로그인
